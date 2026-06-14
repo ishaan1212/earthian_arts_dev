@@ -16,7 +16,16 @@ jobs:
     name: Trigger Render deploy
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    env:
+      RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
 
     steps:
+      - name: Skip when Render deploy hook is missing
+        if: env.RENDER_DEPLOY_HOOK_URL == ''
+        run: |
+          echo "Render deployment skipped."
+          echo "Add RENDER_DEPLOY_HOOK_URL as a repository secret to enable this workflow."
+
       - name: Trigger deploy hook
-        run: curl --fail --request POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
+        if: env.RENDER_DEPLOY_HOOK_URL != ''
+        run: curl --fail --request POST "$RENDER_DEPLOY_HOOK_URL"
