@@ -1,0 +1,654 @@
+:root {
+  --ink: #241115;
+  --muted: #735f66;
+  --paper: #fff8ed;
+  --cream: #fffdf8;
+  --ruby: #c61f5a;
+  --coral: #ff715b;
+  --teal: #008f8c;
+  --saffron: #ffb000;
+  --violet: #6f3cc3;
+  --gold: #d99a24;
+  --line: rgba(36, 17, 21, 0.14);
+  --shadow: 0 20px 60px rgba(82, 28, 46, 0.17);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--cream);
+  font-family: Inter, system-ui, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px clamp(18px, 4vw, 56px);
+  background: rgba(255, 253, 248, 0.9);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(16px);
+}
+
+.brand,
+.site-nav,
+.hero-actions,
+.product-meta,
+.shop-toolbar,
+.filter-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: 10px;
+  font-weight: 800;
+}
+
+.brand-mark {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  color: white;
+  border-radius: 50%;
+  background: conic-gradient(from 130deg, var(--ruby), var(--saffron), var(--teal), var(--violet), var(--ruby));
+  font-family: "Playfair Display", serif;
+}
+
+.site-nav {
+  gap: 6px;
+  padding: 5px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: white;
+}
+
+.site-nav a {
+  padding: 10px 14px;
+  color: var(--muted);
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.site-nav a.active,
+.site-nav a:hover {
+  color: white;
+  background: var(--ink);
+}
+
+.nav-action,
+.button,
+.shop-card button,
+.clear-filter {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.nav-action,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 18px;
+  border-radius: 999px;
+}
+
+.nav-action,
+.button.primary {
+  color: white;
+  background: linear-gradient(135deg, var(--ruby), var(--coral));
+  box-shadow: 0 10px 22px rgba(198, 31, 90, 0.22);
+}
+
+.button.secondary {
+  color: var(--ink);
+  background: white;
+  border: 1px solid var(--line);
+}
+
+.button.light {
+  color: var(--ink);
+  background: white;
+}
+
+.hero {
+  position: relative;
+  min-height: min(760px, calc(100vh - 72px));
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(56px, 9vw, 110px) clamp(20px, 5vw, 72px);
+}
+
+.home-hero {
+  isolation: isolate;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: linear-gradient(90deg, rgba(36, 17, 21, 0.72), rgba(36, 17, 21, 0.14)), url("assets/images/jewelry-hero.png") center / cover;
+}
+
+.hero-media::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 28%;
+  content: "";
+  background: linear-gradient(0deg, var(--cream), transparent);
+}
+
+.hero-content {
+  max-width: 640px;
+  color: white;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--ruby);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-content .eyebrow,
+.story-strip .eyebrow {
+  color: #ffe06b;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  line-height: 1.02;
+}
+
+h1 {
+  max-width: 760px;
+  margin-bottom: 18px;
+  font-size: clamp(3.5rem, 10vw, 8.4rem);
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero-content p {
+  max-width: 540px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.section {
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 92px) 0;
+}
+
+.intro-band,
+.section-heading,
+.story-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.intro-band {
+  align-items: end;
+}
+
+.intro-band p {
+  max-width: 500px;
+}
+
+.section-heading {
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.text-link {
+  color: var(--ruby);
+  font-weight: 900;
+}
+
+.featured-grid,
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.product-card {
+  display: block;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 12px 30px rgba(36, 17, 21, 0.08);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.product-card:hover,
+.product-card:focus-visible,
+.product-card.is-highlighted {
+  border-color: rgba(198, 31, 90, 0.44);
+  box-shadow: var(--shadow);
+  transform: translateY(-7px);
+}
+
+.animated-products .product-card {
+  animation: float-card 4.8s ease-in-out infinite;
+}
+
+.animated-products .rise-two {
+  animation-delay: 0.5s;
+}
+
+.animated-products .rise-three {
+  animation-delay: 1s;
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 0.78;
+  border-radius: 7px;
+  background-color: #f4dfc7;
+  background-image: url("assets/images/jewelry-hero.png");
+  background-size: 230%;
+  box-shadow: inset 0 -60px 80px rgba(36, 17, 21, 0.1);
+}
+
+.product-earrings { background-position: 78% 48%; }
+.product-bracelet { background-position: 42% 65%; }
+.product-necklace { background-position: 57% 40%; }
+.product-ring { background-position: 86% 68%; }
+.product-hoops { background-position: 30% 45%; }
+.product-cuff { background-position: 64% 70%; }
+.product-chain { background-position: 52% 55%; }
+.product-mosaic { background-position: 72% 36%; }
+
+.product-meta {
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.product-meta strong,
+.mini-product strong {
+  display: block;
+  line-height: 1.25;
+}
+
+.product-meta small,
+.mini-product small,
+.shop-toolbar span {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.product-meta b {
+  color: var(--ruby);
+  font-size: 1.15rem;
+}
+
+.story-strip {
+  align-items: center;
+  width: min(1180px, calc(100% - 36px));
+  margin: 0 auto 54px;
+  padding: clamp(34px, 5vw, 54px);
+  color: white;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--teal), var(--violet) 55%, var(--ruby));
+}
+
+.story-strip h2 {
+  max-width: 740px;
+  margin-bottom: 0;
+}
+
+.page-hero {
+  padding: clamp(58px, 9vw, 104px) clamp(20px, 5vw, 72px);
+  background:
+    radial-gradient(circle at 14% 20%, rgba(255, 176, 0, 0.28), transparent 28%),
+    radial-gradient(circle at 88% 12%, rgba(0, 143, 140, 0.24), transparent 30%),
+    linear-gradient(135deg, #fff2df, #fffdf8 56%, #fce5ee);
+}
+
+.page-hero h1 {
+  color: var(--ink);
+  font-size: clamp(2.8rem, 8vw, 6.4rem);
+}
+
+.page-hero p {
+  max-width: 680px;
+  font-size: 1.08rem;
+}
+
+.compact-hero,
+.launch-hero,
+.shop-hero {
+  min-height: 360px;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 1.1fr);
+  gap: clamp(28px, 5vw, 70px);
+  align-items: center;
+}
+
+.about-image {
+  min-height: 480px;
+  border-radius: 8px;
+  background: url("assets/images/jewelry-hero.png") center / cover;
+  box-shadow: var(--shadow);
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.values article {
+  min-height: 230px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+.values span {
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.shop-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+}
+
+.filters {
+  position: sticky;
+  top: 88px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 12px 30px rgba(36, 17, 21, 0.08);
+}
+
+.filter-header,
+.shop-toolbar {
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.filter-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.clear-filter {
+  color: var(--ruby);
+  background: transparent;
+}
+
+.filters label {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.filters select {
+  width: 100%;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  font: inherit;
+}
+
+.shop-toolbar {
+  margin-bottom: 18px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.shop-toolbar p {
+  margin: 0;
+}
+
+.shop-content .product-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shop-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-card p {
+  flex: 1;
+  margin: 14px 0;
+  font-size: 0.92rem;
+}
+
+.shop-card button {
+  min-height: 42px;
+  color: white;
+  border-radius: 8px;
+  background: var(--ink);
+}
+
+.shop-card[hidden] {
+  display: none;
+}
+
+.launch-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 24px;
+}
+
+.launch-feature {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.9fr) minmax(260px, 1fr);
+  gap: 28px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.launch-list {
+  display: grid;
+  gap: 14px;
+}
+
+.mini-product {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 14px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+
+.mini-product .product-image {
+  aspect-ratio: 1;
+}
+
+.site-footer {
+  justify-content: space-between;
+  gap: 18px;
+  padding: 28px clamp(18px, 4vw, 56px);
+  color: white;
+  background: var(--ink);
+}
+
+.site-footer span:first-child {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    flex-wrap: wrap;
+  }
+
+  .site-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    overflow-x: auto;
+  }
+
+  .featured-grid,
+  .product-grid,
+  .shop-content .product-grid,
+  .values {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shop-shell,
+  .about-layout,
+  .launch-layout,
+  .launch-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    position: static;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    padding-inline: 14px;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
+  .nav-action {
+    min-height: 38px;
+    padding: 9px 12px;
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+  }
+
+  .site-nav a {
+    padding: 9px 11px;
+    white-space: nowrap;
+  }
+
+  .hero {
+    min-height: 660px;
+    padding-inline: 18px;
+  }
+
+  .hero-media {
+    background-position: 61% center;
+  }
+
+  .intro-band,
+  .section-heading,
+  .story-strip,
+  .shop-toolbar,
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .featured-grid,
+  .product-grid,
+  .shop-content .product-grid,
+  .values {
+    grid-template-columns: 1fr;
+  }
+
+  .about-image {
+    min-height: 340px;
+  }
+
+  .mini-product {
+    grid-template-columns: 96px 1fr;
+  }
+}

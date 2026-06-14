@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Earthian Arts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">EA</span><span>Earthian Arts</span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a class="active" href="shop.html">Shop</a>
+      <a href="featured.html">Featured</a>
+    </nav>
+    <a class="nav-action" href="featured.html">New</a>
+  </header>
+
+  <main>
+    <section class="page-hero shop-hero">
+      <p class="eyebrow">Shop jewellery</p>
+      <h1>Find the piece that matches the moment.</h1>
+      <p>Filter by jewellery type, audience, material, and price. Product cards are built for quick comparison and easy browsing.</p>
+    </section>
+
+    <section class="shop-shell section">
+      <aside class="filters" aria-label="Product filters">
+        <div class="filter-header">
+          <h2>Filters</h2>
+          <button class="clear-filter" type="button" data-clear>Reset</button>
+        </div>
+        <label>
+          Jewellery Type
+          <select data-filter="type">
+            <option value="all">All</option>
+            <option value="earrings">Earrings</option>
+            <option value="bracelet">Bracelets</option>
+            <option value="necklace">Necklaces</option>
+            <option value="ring">Rings</option>
+          </select>
+        </label>
+        <label>
+          For
+          <select data-filter="audience">
+            <option value="all">All</option>
+            <option value="women">Women</option>
+            <option value="men">Men</option>
+            <option value="unisex">Unisex</option>
+          </select>
+        </label>
+        <label>
+          Material
+          <select data-filter="material">
+            <option value="all">All</option>
+            <option value="gold">Gold tone</option>
+            <option value="silver">Silver tone</option>
+            <option value="beads">Beads</option>
+            <option value="pearl">Pearl</option>
+            <option value="stone">Stone</option>
+          </select>
+        </label>
+        <label>
+          Budget
+          <select data-filter="price">
+            <option value="all">All</option>
+            <option value="under-30">Under $30</option>
+            <option value="30-50">$30 to $50</option>
+            <option value="over-50">Over $50</option>
+          </select>
+        </label>
+      </aside>
+
+      <div class="shop-content">
+        <div class="shop-toolbar">
+          <p><strong data-count>8</strong> products found</p>
+          <span>Click any card for product details.</span>
+        </div>
+        <div class="product-grid" data-products>
+          <article class="product-card shop-card" id="sunburst-earrings" data-type="earrings" data-audience="women" data-material="gold" data-price="30-50">
+            <span class="product-image product-earrings"></span>
+            <div class="product-meta"><span><strong>Sunburst Drop Earrings</strong><small>Earrings · Women · Gold tone</small></span><b>$34</b></div>
+            <p>Textured gold-tone drops with coral bead detail and a bright evening finish.</p>
+            <button type="button">Add to Bag</button>
+          </article>
+          <article class="product-card shop-card" id="riverstone-bracelet" data-type="bracelet" data-audience="unisex" data-material="stone beads" data-price="under-30">
+            <span class="product-image product-bracelet"></span>
+            <div class="product-meta"><span><strong>Riverstone Bead Bracelet</strong><small>Bracelet · Unisex · Stone beads</small></span><b>$28</b></div>
+            <p>Layerable bead bracelet with deep teal, amber, and slate stone-inspired tones.</p>
+            <button type="button">Add to Bag</button>
+          </article>
+          <article class="product-card shop-card" id="pearl-necklace" data-type="necklace" data-audience="women" data-material="pearl" data-price="over-50">
+            <span class="product-image product-necklace"></span>
+            <div class="product-meta"><span><strong>Moon Pearl Necklace</strong><small>Necklace · Women · Pearl finish</small></span><b>$52</b></div>
+            <p>Delicate pearl-inspired pendant on a fine chain for gifting and everyday glow.</p>
+            <button type="button">Add to Bag</button>
+          </article>
+          <article class="product-card shop-card" id="onyx-band" data-type="ring" data-audience="men" data-material="silver stone" data-price="30-50">
+            <span class="product-image product-ring"></span>
+            <div class="product-meta"><span><strong>Onyx Signet Band</strong><small>Ring · Men · Silver tone</small></span><b>$44</b></div>
+            <p>A bold signet-style ring with a dark stone center and polished silver tone.</p>
+            <button type="button">Add to Bag</button>
+          </article>
+          <article class="product-card shop-card" id="lotus-hoops" data-type="earrings" data-audience="women" data-material="silver" data-price="under-30">
+            <span class="product-image product-hoops"></span>
+            <div class="product-meta"><span><strong>Lotus Mini Hoops</strong><small>Earrings · Women · Silver tone</small></span><b>$26</b></div>
+            <p>Lightweight mini hoops with a floral edge and polished silver-tone shine.</p>
+            <button type="button">Add to Bag</button>
+          </article>
+          <article class="product-card shop-card" id="saffron-cuff" data-type="bracelet" data-audience="women" data-material="gold" data-price="30-50">
+            <span class="product-image product-cuff"></span>
+            <div class="product-meta"><span><strong>Saffron Open Cuff</strong><small>Bracelet · Women · Gold tone</small></span><b>$39</b></div>
+            <p>Open cuff bracelet with warm enamel accents and hammered gold-tone texture.</p>
+            <button type="button">Add to Bag</button>
+          </article>
+          <article class="product-card shop-card" id="atlas-chain" data-type="necklace" data-audience="men" data-material="silver" data-price="over-50">
+            <span class="product-image product-chain"></span>
+            <div class="product-meta"><span><strong>Atlas Silver Chain</strong><small>Necklace · Men · Silver tone</small></span><b>$58</b></div>
+            <p>A clean medium-weight chain designed for solo wear or pendant layering.</p>
+            <button type="button">Add to Bag</button>
+          </article>
+          <article class="product-card shop-card" id="mosaic-ring" data-type="ring" data-audience="unisex" data-material="beads stone" data-price="under-30">
+            <span class="product-image product-mosaic"></span>
+            <div class="product-meta"><span><strong>Mosaic Stacking Ring</strong><small>Ring · Unisex · Stone color</small></span><b>$24</b></div>
+            <p>A stackable ring with small mosaic color accents in ruby, teal, and gold.</p>
+            <button type="button">Add to Bag</button>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Earthian Arts</span>
+    <span>Browse by style, material, and mood.</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

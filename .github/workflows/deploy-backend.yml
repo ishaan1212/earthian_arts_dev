@@ -1,0 +1,22 @@
+name: Deploy Backend
+
+on:
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-backend
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Trigger Render deploy
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger deploy hook
+        run: curl --fail --request POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
