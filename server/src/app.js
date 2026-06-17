@@ -14,12 +14,22 @@ import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
 export const app = express();
 
+const allowedOrigins = (process.env.CLIENT_URLS || process.env.CLIENT_URL || "http://localhost:5173")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 app.post("/api/webhooks/stripe", express.raw({ type: "application/json" }), stripeWebhook);
 
 app.use(helmet());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true
   })
 );
@@ -40,7 +50,7 @@ app.get("/", (req, res) => {
     status: "ok",
     service: "earthian-arts-api",
     message: "API is running. Open the frontend at the client URL.",
-    frontendUrl: process.env.CLIENT_URL || "http://localhost:5173",
+    frontendUrl: allowedOrigins[0],
     healthUrl: "/api/health"
   });
 });
